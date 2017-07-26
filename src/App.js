@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import NamesList from './components/namesList.js';
+import NamesList from './components/NamesList.js';
+import Credit from './components/Credit.js';
 import './App.css';
 
 class App extends Component {
@@ -7,6 +8,7 @@ class App extends Component {
     return(
       <div>
         <NamesList data={this.props.data}/>
+        <Credit/>
       </div>
     );
   }
