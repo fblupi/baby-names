@@ -1,22 +1,20 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-class NamesList extends Component {
-	render() {
-    const { data } = this.props;
-    const namesList = data.map(name => {
+export default ({data, filterText}) => {
+  const namesList = data
+    .filter(name => {
+      return name.name.toLowerCase().indexOf(filterText.toLowerCase()) >= 0;
+    })
+    .map(name => {
       return (
         <li key={name.id} className={name.sex}>{name.name}</li>
-      )
-    })
-    return (
-      <div className="App">
-        <p>filterText value is: {this.props.filterText}</p>
-        <ul>
-          {namesList}
-        </ul>
-      </div>
-    );
-	}
+      );
+    });
+  return (
+    <div className="App"> 
+      <ul>
+        {namesList}
+      </ul>
+    </div>
+  );
 }
-
-export default NamesList;
