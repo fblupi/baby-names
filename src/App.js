@@ -7,13 +7,32 @@ import 'normalize-css';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      filterText: 'hello'
+    }
+  }
+
+  filterUpdate(value) {
+    this.setState({
+      filterText: value
+    })
+  }
+
   render() {
     return(
       <div>
-        <Search/>
+        <Search 
+          filterText={this.state.filterText}
+          filterUpdate={this.filterUpdate.bind(this)}
+        />
         <main>
           <Shortlist/>
-          <NamesList data={this.props.data}/>
+          <NamesList 
+            data={this.props.data}
+            filterText={this.state.filterText}
+          />
           <Credit/>
         </main>
       </div>

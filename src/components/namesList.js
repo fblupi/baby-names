@@ -10,6 +10,7 @@ class NamesList extends Component {
     })
     return (
       <div className="App">
+        <p>filterText value is: {this.props.filterText}</p>
         <ul>
           {namesList}
         </ul>
